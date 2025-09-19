@@ -10,21 +10,21 @@ import javalib.worldimages.StarImage;
 import javalib.worldimages.WorldImage;
 
 // represents a game piece
-class GamePiece {
+public class GamePiece {
   // in logical coordinates, with the origin
   // at the top-left corner of the screen
-  int row;
-  int col;
+  protected int row;
+  protected int col;
   // whether this GamePiece is connected to the
   // adjacent left, right, top, or bottom pieces
-  boolean left;
-  boolean right;
-  boolean top;
-  boolean bottom;
+  protected boolean left;
+  protected boolean right;
+  protected boolean top;
+  protected boolean bottom;
   // whether the power station is on this piece
-  boolean powerStation;
-  boolean powered;
-  int distanceFromStation;
+  protected  boolean powerStation;
+  protected boolean powered;
+  protected int distanceFromStation;
 
   public GamePiece(int row, int col, boolean left, boolean right, boolean top, boolean bottom) {
     this.row = row;
@@ -39,7 +39,7 @@ class GamePiece {
   }
 
   // Constructor for testing
-  GamePiece(int row, int col, boolean left, boolean right, boolean top, boolean bottom,
+  public GamePiece(int row, int col, boolean left, boolean right, boolean top, boolean bottom,
                  boolean ps, boolean p, int d) {
     this.row = row;
     this.col = col;
@@ -54,7 +54,7 @@ class GamePiece {
 
   // makes the game piece tile have a field set to true
   // EFFECT: alters the piece to have a true field depending on the input
-  void makeTrue(String str) {
+  public void makeTrue(String str) {
     if (str.equals("right")) {
       this.right = true;
     } else if (str.equals("left")) {
@@ -72,19 +72,19 @@ class GamePiece {
 
   // makes the game piece tile's power station be not activated
   // EFFECT: alters the power station to not be on the piece
-  void makePSFalse() {
+  public void makePSFalse() {
     this.powerStation = false;
   }
 
   // makes the game piece be not powered
   // EFFECT: alters the piece to not be powered
-  void makePoweredFalse() {
+  public void makePoweredFalse() {
     this.powered = false;
   }
 
   //rotates the game piece counterclockwise
   // EFFECT: rotates the pointing of the game piece direction
-  void rotate() {
+  public void rotate() {
     boolean tempe = this.left;
     this.left = this.bottom;
     this.bottom = this.right;
@@ -93,7 +93,7 @@ class GamePiece {
   }
 
   // determines the difference in column or row location
-  int difference(GamePiece other, String str) {
+  public int difference(GamePiece other, String str) {
     int diff = 0;
     if (str.equals("col")) {
       diff = other.col - this.col;
@@ -104,19 +104,19 @@ class GamePiece {
   }
 
   // calculates the updated distance after adding one
-  int addOneDist() {
+  public int addOneDist() {
     return this.distanceFromStation + 1;
   }
 
   // calculates the radius distance from the power station and adding one
-  int calculateDistPS() {
+  public int calculateDistPS() {
     return (this.distanceFromStation / 2) + 1;
   }
 
   // whether or not the game piece is within the radius distance
   // EFFECT: changes the distance from station by 1 and powers or unpowers the piece
   // depending on its distance and difference from the radius
-  boolean updatePowerFrom(GamePiece current, int radius) {
+  public boolean updatePowerFrom(GamePiece current, int radius) {
     if (this.distanceFromStation == -1) {
       this.distanceFromStation = current.distanceFromStation + 1;
       this.powered = this.distanceFromStation <= radius;
@@ -142,7 +142,7 @@ class GamePiece {
   // - wireWidth: the width of wires, in pixels
   // - wireColor: the Color to use for rendering wires on this
   // - hasPowerStation: if true, draws a fancy star on this tile to represent the power station
-  WorldImage tileImage(int size, int wireWidth, Color wireColor, boolean hasPowerStation) {
+  public WorldImage tileImage(int size, int wireWidth, Color wireColor, boolean hasPowerStation) {
     // Start tile image off as a blue square with a wire-width square in the middle,
     // to make image "cleaner" (will look strange if tile has no wire, but that can't be)
     WorldImage image = new OverlayImage(

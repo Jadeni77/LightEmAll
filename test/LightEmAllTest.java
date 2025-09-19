@@ -13,11 +13,11 @@ import tester.Tester;
 // represents examples and tests for the game
 class LightEmAllTest {
 
-  LightEmAllPart2 game1;
-  LightEmAllPart2 game2;
-  LightEmAllPart2 game3;
-  LightEmAllPart2 game4;
-  LightEmAllPart2 game5;
+  LightEmAll game1;
+  LightEmAll game2;
+  LightEmAll game3;
+  LightEmAll game4;
+  LightEmAll game5;
   Random rand1;
   Random rand2;
   Random rand3;
@@ -49,11 +49,11 @@ class LightEmAllTest {
     this.rand5 = new Random(5);
     this.rand6 = new Random(6);
     this.rand7 = new Random(7);
-    this.game1 = new LightEmAllPart2(8, 8, this.rand1);
-    this.game2 = new LightEmAllPart2(4, 4, this.rand2);
-    this.game3 = new LightEmAllPart2(3, 3, this.rand3);
-    this.game4 = new LightEmAllPart2(2, 2, this.rand6);
-    this.game5 = new LightEmAllPart2(1, 1, this.rand7);
+    this.game1 = new LightEmAll(8, 8, this.rand1);
+    this.game2 = new LightEmAll(4, 4, this.rand2);
+    this.game3 = new LightEmAll(3, 3, this.rand3);
+    this.game4 = new LightEmAll(2, 2, this.rand6);
+    this.game5 = new LightEmAll(1, 1, this.rand7);
     this.p1 = new GamePiece(0, 0, false, true, false, true);
     this.p2 = new GamePiece(1, 0, false, false, true, true);
     this.p3 = new GamePiece(0, 1, true, false, false, true);

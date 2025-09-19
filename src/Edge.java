@@ -1,7 +1,7 @@
 // represents edges for the minimum spanning tree
 public class Edge {
-  GamePiece from;
-  GamePiece to;
+  protected GamePiece from;
+  protected GamePiece to;
   int weight;
 
   public Edge(GamePiece from, GamePiece to, int weight) {
@@ -11,7 +11,7 @@ public class Edge {
   }
 
   // finds the change in column or row with this edge
-  int changeInColOrRow(String str) {
+  public int changeInColOrRow(String str) {
     int dif = 0;
     if (str.equals("col")) {
       dif = this.from.difference(this.to, str);

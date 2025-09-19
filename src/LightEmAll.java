@@ -8,7 +8,7 @@ import java.util.*;
 //a node is the line inside the box (GamePiece)
 
 // represents the LightEmAllPart2 game world
-class LightEmAllPart2 extends World {
+public class LightEmAll extends World {
   // a list of columns of GamePieces, i.e., represents the board in column-major order
   ArrayList<ArrayList<GamePiece>> board;
   // a list of all nodes
@@ -24,7 +24,7 @@ class LightEmAllPart2 extends World {
   //a list of edges of the minimum spanning tree
   ArrayList<Edge> mst;
 
-  LightEmAllPart2(int width, int height, Random rand) {
+  public LightEmAll(int width, int height, Random rand) {
     this.width = width;
     this.height = height;
     this.board = new ArrayList<ArrayList<GamePiece>>();
@@ -103,7 +103,7 @@ class LightEmAllPart2 extends World {
 
   // creates a random edge for the minimum spanning tree
   // EFFECT: alters the game board to create random game pieces
-  void randomEdge(ArrayList<Edge> edges) {
+  protected void randomEdge(ArrayList<Edge> edges) {
     for (int col = 0; col < this.width; col++) {
       for (int row = 0; row < this.height; row++) {
         GamePiece current = this.board.get(col).get(row);
@@ -123,7 +123,7 @@ class LightEmAllPart2 extends World {
 
   // builds up the minimum spanning tree to sort
   // EFFECT: alters the edges of the game so that they would be able to connect in some way
-  void buildMST() {
+  protected void buildMST() {
     ArrayList<Edge> edges = new ArrayList<Edge>();
     randomEdge(edges);
 
@@ -149,7 +149,7 @@ class LightEmAllPart2 extends World {
 
   // connects game pieces together to ensure a solution
   // EFFECT: Alters game pieces if it does not connect with one another
-  void connectPieces(GamePiece a, GamePiece b) {
+  protected void connectPieces(GamePiece a, GamePiece b) {
     //determine direction and connect them
     if (a.col == b.col) { //vertical connection
       a.makeTrue("bottom");
@@ -163,7 +163,7 @@ class LightEmAllPart2 extends World {
 
   // creates a random game piece node for the game
   // EFFECT: changes every node to another random direction of node
-  void makeRandomNode(Random rand) {
+  protected void makeRandomNode(Random rand) {
     //manipulate every node 
     for (GamePiece gp : this.nodes) {
       //four directions so 4 
@@ -177,7 +177,7 @@ class LightEmAllPart2 extends World {
 
   // alters world state to power up the nodes if it is connected to power station
   // EFFECT: determines if pieces are connected together and powers the pieces if so
-  void computeIsPowered() {
+  protected void computeIsPowered() {
     //reset all nodes to be not powered
     for (GamePiece gp : this.nodes) {
       gp.setDistanceFromPS(-1);
@@ -206,7 +206,7 @@ class LightEmAllPart2 extends World {
   }
 
   // finds game pieces with its neighbors from the left, right, top and bottom
-  ArrayList<GamePiece> getConnectedNeighbors(GamePiece current) {
+  protected ArrayList<GamePiece> getConnectedNeighbors(GamePiece current) {
     ArrayList<GamePiece> neighbors = new ArrayList<GamePiece>();
     // Check left
     //if the left points at right and vice versa
