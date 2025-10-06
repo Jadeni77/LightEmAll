@@ -11,9 +11,9 @@ with a functional programming style, which does not contain too many object-orie
 * The player will also be able to click on the edges to adjust their position
 * The game ends if all edges are connected and light up
 
-<img width="400"  alt="Screenshot 2025-10-02 at 11 37 16 PM" src="https://github.com/user-attachments/assets/a142becd-4b67-48bf-a709-7bc893763cb7" />
-<img width="400" alt="Screenshot 2025-10-02 at 11 43 19 PM" src="https://github.com/user-attachments/assets/56158b40-8c5a-41c3-888e-f89e3ffef993" />
-<img width="400" alt="Screenshot 2025-10-02 at 11 51 25 PM" src="https://github.com/user-attachments/assets/d98a2522-9ee6-4cd0-abb8-264fa955c0c3" />
+<img width="400"  alt="LightEmAll" src="https://github.com/user-attachments/assets/a142becd-4b67-48bf-a709-7bc893763cb7" />
+<img width="400" alt="LightEmAll" src="https://github.com/user-attachments/assets/56158b40-8c5a-41c3-888e-f89e3ffef993" />
+<img width="400" alt="LightEmAll" src="https://github.com/user-attachments/assets/d98a2522-9ee6-4cd0-abb8-264fa955c0c3" />
 
 ## 🛠️ How it works
 * **java.awt.color** - Provides the color value and RGB
